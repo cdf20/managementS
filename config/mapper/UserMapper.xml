@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqe.dao.UserDao">
+    <select id="queryAllUsers" resultType="User">
+        select * from users
+    </select>
+
+    <insert id="insertUser" parameterType="User">
+        insert into
+        users(name,password,isAdmin)
+        values(#{name},#{password},#{isAdmin})
+    </insert>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from users where id=#{id}
+    </delete>
+
+    <select id="queryUserByName" resultType="User">
+        select * from users where name=#{name}
+    </select>
+
+    <update id="updateUserById" parameterType="User">
+        update users set password=#{password} where id=#{id}
+    </update>
+</mapper>
